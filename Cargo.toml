@@ -1,0 +1,16 @@
+[package]
+name = "reidabot"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+roux = "2.2"
+tokio = { version = "1.33", features = ["full"] }
+tracing-subscriber = "0.3"
+tracing-error = "0.2"
+tracing = "0.1"
+anyhow = "1"
+strum = { version = "0.25", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+dotenvy = "0.15.7"
+envy = "0.4.2"
