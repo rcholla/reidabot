@@ -1,4 +1,5 @@
 use crate::prelude::*;
+use dyn_fmt::AsStrFormatExt;
 use serde::{Deserialize, Serialize};
 use strum::EnumMessage;
 use tracing_error::SpanTrace;
@@ -40,6 +41,7 @@ where
 pub enum ReiErrorType {
   #[strum(message = "Unable to load environment variables")] LoadEnvVariables,
   #[strum(message = "Unable to subscribe tracing")] SubscribeTracing,
+  #[strum(message = "Unable to set locale to '{}'")] SetLocale(String),
   #[strum(message = "Unable to create a reddit instance")] CreateInstance,
   Unknown(String),
 }
@@ -48,6 +50,7 @@ impl ReiErrorType {
   fn as_anyhow(&self) -> anyhow::Error {
     match &self {
       ReiErrorType::Unknown(reason) => anyhow!("{reason}"),
+      ReiErrorType::SetLocale(locale) => anyhow!(self.get_message().unwrap().format(&[locale])),
       _ => anyhow!("{}", self.get_message().unwrap_or("None")),
     }
   }

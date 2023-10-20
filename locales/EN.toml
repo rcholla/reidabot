@@ -1,0 +1,5 @@
+[warning]
+shadowban = "Hi /u/%{author}, it seems like you are shadowbanned. In order to get your account unbanned, you need to [submit an appeal](https://www.reddit.com/appeal) to reddit moderators. Your post won't be approved until your account is unbanned."
+
+[footer]
+message = "I'm a simple bot created by [/u/emrhnpla](https://reddit.com/user/emrhnpla) to serve the moderation team of [/r/CodingTR](https://reddit/com/r/CodingTR). If you think my existence on this thread is a mistake, please [contact to my creator](https://www.reddit.com/message/compose/?to=emrhnpla)"

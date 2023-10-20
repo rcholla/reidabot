@@ -1,0 +1,5 @@
+[warning]
+shadowban = "Selamlar /u/%{author}, görünüşe göre shadowban yemişsin. Hesabının yasağını kaldırtman için reddit yetkililerine [bir itirazda bulunman](https://www.reddit.com/appeal) gerekiyor. Paylaşımın hesabının yasağı kaldırılana kadar onaylanmayacaktır."
+
+[footer]
+message = "Ben [/r/CodingTR](https://reddit/com/r/CodingTR) moderasyon ekibine hizmet etmek için [/u/emrhnpla](https://reddit.com/user/emrhnpla) tarafından yaratılmış basit bir botum. Buradaki varlığımın bir hata olduğunu düşünüyorsan lütfen [yaratıcıma ulaş](https://www.reddit.com/message/compose/?to=emrhnpla)"
