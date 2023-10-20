@@ -8,8 +8,8 @@ async fn main() -> ReiResult {
 
   Rei::set_locale("TR")?;
 
-  let env = Rei::load_env()?;
-  let rei = Rei::new(env).await?;
+  let config = Rei::load_config()?;
+  let rei = Rei::new(config).await?;
 
   Rei::stream_posts("CodingTR", |post| warn_shadowbanned_users(&rei, post)).await?;
 

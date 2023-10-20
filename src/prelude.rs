@@ -1,5 +1,5 @@
 pub use crate::{
-  env::EnvVariables,
+  config::Config,
   error::{ReiError, ReiErrorExt, ReiErrorType, ReiResult},
   util::ReiFooterExt,
   Rei,

@@ -1,7 +1,7 @@
 use serde::Deserialize;
 
 #[derive(Deserialize)]
-pub struct EnvVariables {
+pub struct Config {
   pub username: String,
   pub password: String,
   pub client_id: String,

@@ -1,7 +1,7 @@
 #![feature(yeet_expr)]
 
 mod api;
-mod env;
+mod config;
 mod error;
 pub mod prelude;
 mod util;
@@ -21,12 +21,12 @@ pub struct Rei {
 }
 
 impl Rei {
-  pub fn load_env() -> ReiResult<EnvVariables> {
-    tracing::info!("Loading environment variables");
-    dotenvy::dotenv().yeets(ReiErrorType::LoadEnvVariables)?;
-    let env = envy::from_env::<EnvVariables>().yeets(ReiErrorType::LoadEnvVariables)?;
+  pub fn load_config() -> ReiResult<Config> {
+    tracing::info!("Loading config");
+    dotenvy::dotenv().yeets(ReiErrorType::LoadConfig)?;
+    let config = envy::from_env::<Config>().yeets(ReiErrorType::LoadConfig)?;
 
-    Ok(env)
+    Ok(config)
   }
 
   pub fn init_tracing(level: tracing::Level) -> ReiResult {
@@ -49,11 +49,13 @@ impl Rei {
     Ok(())
   }
 
-  pub async fn new(env: EnvVariables) -> ReiResult<Self> {
+  pub async fn new(config: Config) -> ReiResult<Self> {
+    #[rustfmt::skip] let Config { username, password, client_id, client_secret, user_agent } = config;
+
     tracing::info!("Rei is getting ready to fly to the moon!");
-    let me = Reddit::new(&env.user_agent, &env.client_id, &env.client_secret)
-      .username(&env.username)
-      .password(&env.password)
+    let me = Reddit::new(&user_agent, &client_id, &client_secret)
+      .username(&username)
+      .password(&password)
       .login()
       .await
       .yeets(ReiErrorType::CreateInstance)?;

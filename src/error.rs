@@ -39,7 +39,7 @@ where
 #[rustfmt::skip]
 #[derive(Debug, strum::Display, EnumMessage, Serialize, Deserialize)]
 pub enum ReiErrorType {
-  #[strum(message = "Unable to load environment variables")] LoadEnvVariables,
+  #[strum(message = "Unable to load config")] LoadConfig,
   #[strum(message = "Unable to subscribe tracing")] SubscribeTracing,
   #[strum(message = "Unable to set locale to '{}'")] SetLocale(String),
   #[strum(message = "Unable to create a reddit instance")] CreateInstance,
