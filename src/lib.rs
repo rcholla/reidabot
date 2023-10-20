@@ -29,11 +29,11 @@ impl Rei {
     Ok(env)
   }
 
-  pub fn init_tracing() -> ReiResult {
-    let subscriber = FmtSubscriber::builder()
-      .with_max_level(tracing::Level::INFO)
-      .finish();
-    tracing::subscriber::set_global_default(subscriber).yeets(ReiErrorType::SubscribeTracing)?;
+  pub fn init_tracing(level: tracing::Level) -> ReiResult {
+    tracing::subscriber::set_global_default(
+      FmtSubscriber::builder().with_max_level(level).finish(),
+    )
+    .yeets(ReiErrorType::SubscribeTracing)?;
 
     Ok(())
   }

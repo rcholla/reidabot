@@ -4,7 +4,7 @@ i18n!("locales", fallback = "EN");
 
 #[tokio::main]
 async fn main() -> ReiResult {
-  Rei::init_tracing()?;
+  Rei::init_tracing(tracing::Level::INFO)?;
 
   Rei::set_locale("TR")?;
 
