@@ -19,7 +19,7 @@ async fn main() -> ReiResult {
 async fn warn_shadowbanned_users(rei: &Rei, post: SubmissionData) -> ReiResult {
   if post.author != "[deleted]" && rei.util.is_shadowbanned(&post.author).await? {
     let message = t!("warning.shadowban", author = post.author).with_footer();
-    rei.me.comment(&message, &post.name).await?;
+    rei.util.comment_as_mod(&message, &post.name, true).await?;
 
     rei.api.remove(&post.name, false).await?;
   }
