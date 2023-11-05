@@ -4,7 +4,7 @@ pub struct ReiUtil(pub crate::api::ReiApi);
 
 impl ReiUtil {
   pub async fn is_shadowbanned(&self, username: &str) -> ReiResult<bool> {
-    let result = match User::new(username).overview(None).await {
+    let result = match User::new(username).about(None).await {
       Ok(_) => false,
       Err(_) => {
         !self

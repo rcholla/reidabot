@@ -53,7 +53,7 @@ impl ReiApi {
   pub async fn username_available(&self, username: &str) -> ReiResult<reqwest::Response> {
     let response = self
       .0
-      .post(build_oauth("api/username_available"))
+      .get(build_oauth("api/username_available"))
       .query(&[("user", username)])
       .send()
       .await?;
