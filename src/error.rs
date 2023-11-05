@@ -1,6 +1,5 @@
 use crate::prelude::*;
 use dyn_fmt::AsStrFormatExt;
-use serde::{Deserialize, Serialize};
 use strum::EnumMessage;
 use tracing_error::SpanTrace;
 
@@ -37,7 +36,7 @@ where
 }
 
 #[rustfmt::skip]
-#[derive(Debug, strum::Display, EnumMessage, Serialize, Deserialize)]
+#[derive(Debug, strum::Display, EnumMessage)]
 pub enum ReiErrorType {
   #[strum(message = "Unable to load config")] LoadConfig,
   #[strum(message = "Unable to subscribe tracing")] SubscribeTracing,
