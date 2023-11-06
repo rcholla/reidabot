@@ -37,22 +37,23 @@ impl ReiUtil {
 }
 
 pub trait ReiFooterExt {
-  fn with_footer(&self) -> String;
+  fn with_footer(self) -> String;
 }
 
 impl<T> ReiFooterExt for T
 where
-  T: Into<String> + std::fmt::Display,
+  T: Into<String>,
 {
-  fn with_footer(&self) -> String {
+  fn with_footer(self) -> String {
     f!(
       "
-{self}
+{}
 
 -----
 
 ^({})
       ",
+      self.into(),
       t!("footer.message")
     )
     .trim()
