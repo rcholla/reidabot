@@ -38,7 +38,9 @@ impl Rei {
     Ok(())
   }
 
-  pub fn set_locale(locale: &str) -> ReiResult {
+  pub fn set_locale(locale: Locale) -> ReiResult {
+    let locale = locale.as_ref();
+
     if !available_locales!().contains(&locale) {
       do yeet ReiErrorType::SetLocale(locale.into());
     }

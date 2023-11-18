@@ -8,3 +8,9 @@ pub struct Config {
   pub client_secret: String,
   pub user_agent: String,
 }
+
+#[derive(strum::AsRefStr)]
+pub enum Locale {
+  TR,
+  EN,
+}

@@ -6,7 +6,7 @@ i18n!("locales", fallback = "EN");
 async fn main() -> ReiResult {
   Rei::init_tracing(tracing::Level::INFO)?;
 
-  Rei::set_locale("TR")?;
+  Rei::set_locale(Locale::TR)?;
 
   let config = Rei::load_config()?;
   let rei = Rei::new(config).await?;
